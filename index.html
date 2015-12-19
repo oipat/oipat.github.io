@@ -1,1 +1,166 @@
-<h1>Test</h1>
+<!doctype html>
+<html>
+<head>
+<style>
+
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: grey;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+h1.title {
+  float: left;
+}
+
+div.header {
+  width: 100%;
+  background-color: white;
+  float: left;
+}
+
+div.hamburger {
+  float: right;
+}
+
+div.footer {
+  width: 100%;
+  background-color: blue;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+div.wrapper {
+  height: 100%;
+  background-color: lightblue;
+}
+
+div.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 70px;
+}
+
+div.content {
+  background-color: red;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+nav.hamburger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  display: none;
+  background-color: green;
+  z-index: 2;
+  animation-name: hamburger;
+  animation-duration: 0.6s;
+}
+
+nav.wide {
+  background-color: lightgreen;
+  float: left;
+  display: none;
+  width: 20%;
+  min-height: 200px;
+}
+
+@media screen and (min-width: 666px) {
+  nav.wide {
+    float: left;
+    display: block;
+  }
+  div.container {
+    width: 69%;
+    clear: both;
+  }
+  div.content {
+    width: 80%;
+  }
+  div.hamburger {
+    display: none;
+  }
+}
+
+@keyframes hamburger { 
+  from {
+    left: -500px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <nav class="hamburger">
+      <ul>
+        <li>link1</li>
+        <li>link2</li>
+      </ul>
+  </nav>
+  <div class="wrapper">
+    <div class="header">
+      <h1 class="title">
+        <a href="/#">
+          Tittel
+        </a>
+      </h1>
+      <div class="hamburger">
+        menu
+      </div>
+    </div>
+    <div class="container">
+      <nav class="wide">
+        nav
+      </nav>
+
+      <div class="content">
+        asd
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+    <div class="footer">
+      fottter
+    </div>
+  </div>
+
+<script>
+var displaymenu = false;
+document.querySelector("div.hamburger").addEventListener("click", function(event) {
+  if(!displaymenu) {
+    document.querySelector("nav.hamburger").style.display = "block";
+    displaymenu = true;
+  }
+  else {
+    document.querySelector("nav.hamburger").style.display="none";
+    displaymenu = false;
+  }
+});
+
+document.querySelector("div.wrapper").addEventListener("click", function(event) {
+  if( event.target.className != "hamburger" && displaymenu) {
+    document.querySelector("nav.hamburger").style.display="none";
+    displaymenu = false;
+  }
+});
+</script>
+</body>
+
+</html>
