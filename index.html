@@ -3,60 +3,66 @@
 <head>
 <meta name="viewport" content="width=device-width" />
 <style>
-
 body, html {
   height: 100%;
   margin: 0;
   background-color: grey;
 }
-
+ul {
+  padding: 0;
+}
 h1 {
   padding: 0;
   margin: 0;
 }
-
 h1.title {
   float: left;
 }
-
 div.header {
   width: 100%;
   background-color: white;
   float: left;
 }
-
 div.hamburger {
   float: right;
+  height: 2em;
 }
-
+div.hamburger:hover {
+  cursor: pointer;
+}
 div.footer {
   width: 100%;
   background-color: blue;
-  height: 70px;
+  height: 4em;
   position: absolute;
   bottom: 0;
   left: 0;
 }
-
 div.wrapper {
-  height: 100%;
+  min-height: 100%;
+  position: relative;
   background-color: lightblue;
 }
-
 div.container {
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 70px;
+  float: left;
 }
-
 div.content {
   background-color: red;
   float: left;
-  width: 100%;
-  height: 100%;
+  margin-bottom: 4em;
 }
-
-nav.hamburger {
+article {
+  background-color: grey;
+  padding-left: 2%;
+  padding-right: 1%;
+  width: 97%;
+  float: left;
+  font-face: arial;
+  font-size: 1.5em;
+}
+nav {
   position: absolute;
   left: 0;
   top: 0;
@@ -67,101 +73,135 @@ nav.hamburger {
   z-index: 2;
   animation-name: hamburger;
   animation-duration: 0.6s;
+  font-size: 3em;
+  padding-left: 2%;
 }
-
-nav.wide {
-  background-color: lightgreen;
-  float: left;
-  display: none;
-  width: 20%;
-  min-height: 200px;
+nav li {
+  list-style-type: none;
 }
-
-@media screen and (min-width: 40em) {
-  nav.wide {
+@media screen and (min-width: 50em) {
+  nav {
+    display: block !important; // overwrite the embedded style in element
+    z-index: 0;
+    position: relative;
+    background-color: pink;
     float: left;
-    display: block;
+    width: 20%;
+    min-height: 12em;
+    animation-name: none;
+    font-size: 1.4em;
   }
   div.container {
-    width: 69%;
-    clear: both;
+    width: 77%;
+    margin-left: 17%;
+    float: left;
   }
   div.content {
-    width: 80%;
+    width: 88%;
+  }
+  article {
+    background-color: grey;
+    padding-left: 2%;
+    padding-right: 1%;
+    width: 75%;
+    float: left;
   }
   div.hamburger {
     display: none;
   }
 }
-
 @keyframes hamburger { 
   from {
-    left: -500px;
+    left: -40em;
   }
   to {
     left: 0;
   }
 }
-
 </style>
 </head>
+
 <body>
 
-  <nav class="hamburger">
-      <ul>
-        <li>link1</li>
-        <li>link2</li>
-      </ul>
-  </nav>
-  <div class="wrapper">
-    <div class="header">
-      <h1 class="title">
-        <a href="/#">
-          Tittel
-        </a>
-      </h1>
-      <div class="hamburger">
-        menu
-      </div>
-    </div>
-    <div class="container">
-      <nav class="wide">
-        nav
-      </nav>
-
-      <div class="content">
-        asd
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-      </div>
-    </div>
-    <div class="footer">
-      fottter
+<div class="wrapper">
+  <div class="header">
+    <h1 class="title">
+      <a href="./#">
+        Tittel
+      </a>
+    </h1>
+    <div class="hamburger">
+      menu
     </div>
   </div>
+  <div class="container">
+    <div class="content">
+      <nav class="hidden">
+        <ul>
+          <li><a href="#/link1">link1</a></li>
+          <li><a href="#/link2">link2</a></li>
+        </ul>
+      </nav>
+      <article>
+        <h2>Artikeltittel</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur in augue aliquam rhoncus. Etiam in tellus quis risus molestie dignissim non at mauris. Vivamus imperdiet odio diam, ac efficitur tortor dignissim sed. Nullam vulputate augue ac turpis condimentum mollis. Proin sapien massa, pulvinar non tellus quis, molestie sollicitudin velit. Curabitur rutrum nisi dui, sit amet convallis dui condimentum a. Phasellus ac odio et dui consectetur placerat non at risus. Vestibulum bibendum erat sed tellus porta, sed malesuada dui auctor. Pellentesque iaculis urna et ultricies lacinia. Nulla lacus ipsum, placerat et laoreet nec, aliquam lobortis est. Pellentesque sodales, erat vitae faucibus consequat, mauris justo mollis neque, at vehicula felis ligula sed nunc. Suspendisse convallis turpis ac nisi tempor convallis vitae ut velit. Duis viverra interdum rutrum. Phasellus sit amet malesuada sapien.
+        </p>
+        <p>
+          Duis pharetra tellus sit amet ullamcorper ultricies. Sed ullamcorper eget nisi ut ultricies. Vestibulum at nibh auctor augue porttitor aliquam. Phasellus blandit tellus id odio ullamcorper, sit amet fermentum ex interdum. Aenean a interdum nisi. Mauris vitae velit a nibh dignissim sagittis. Maecenas at nisi quis sapien luctus ultrices. Sed ullamcorper, dui quis posuere porta, elit odio semper nisl, non ornare magna purus nec velit. Sed consequat, risus non sodales lacinia, augue odio cursus metus, auctor elementum risus nibh sit amet erat.
+        </p>
+        <p>
+          Morbi sit amet scelerisque lorem. Proin consectetur efficitur felis a mollis. Sed quis dignissim est. Quisque id odio eu quam congue pulvinar. Cras ex diam, dapibus vel massa at, venenatis vulputate sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam pretium tellus nisi, id porta tortor ultrices quis. Donec sollicitudin arcu ac massa elementum, nec maximus tellus fermentum. Etiam mollis in mi eget consequat. Pellentesque aliquam velit vitae justo semper varius. Curabitur in sem a dui sagittis scelerisque.
+        </p>
+        <p>
+          Donec malesuada est urna, ac scelerisque elit accumsan id. Quisque tellus enim, vulputate ut consequat ut, varius at tortor. Suspendisse quis ipsum at risus ultricies tincidunt ut id ligula. Nullam non scelerisque sem. Nulla condimentum tristique nulla ut sodales. Sed vel molestie tortor. Suspendisse sagittis ut ex ac rhoncus. Suspendisse vitae dictum est, mattis molestie metus. Vivamus porta pretium tortor, quis luctus nisl facilisis eget.
+        </p>
+        <p>
+          Donec malesuada est urna, ac scelerisque elit accumsan id. Quisque tellus enim, vulputate ut consequat ut, varius at tortor. Suspendisse quis ipsum at risus ultricies tincidunt ut id ligula. Nullam non scelerisque sem. Nulla condimentum tristique nulla ut sodales. Sed vel molestie tortor. Suspendisse sagittis ut ex ac rhoncus. Suspendisse vitae dictum est, mattis molestie metus. Vivamus porta pretium tortor, quis luctus nisl facilisis eget.
+        </p>
+        <p>
+          Donec malesuada est urna, ac scelerisque elit accumsan id. Quisque tellus enim, vulputate ut consequat ut, varius at tortor. Suspendisse quis ipsum at risus ultricies tincidunt ut id ligula. Nullam non scelerisque sem. Nulla condimentum tristique nulla ut sodales. Sed vel molestie tortor. Suspendisse sagittis ut ex ac rhoncus. Suspendisse vitae dictum est, mattis molestie metus. Vivamus porta pretium tortor, quis luctus nisl facilisis eget.
+        </p>
+        <p>
+          Duis aliquet massa vel quam faucibus, non ultrices mauris placerat. Cras metus ipsum, efficitur quis neque non, porttitor condimentum nunc. Suspendisse et convallis tellus. Duis elementum, dolor eu faucibus vulputate, felis est commodo ipsum, id maximus magna mauris id purus. Maecenas quis mi interdum, tristique dui sed, faucibus leo. Vestibulum in lacus scelerisque, pellentesque diam at, mollis justo. Mauris lobortis imperdiet felis, id pulvinar arcu. Cras feugiat nisl quis ante feugiat bibendum. Nam pellentesque in nisi sollicitudin rutrum. Morbi auctor ut est quis gravida.
+        </p>
+      </article>
+    </div>
+  </div>
+  <br style="clear: both;" />
+  <div class="footer">
+    fottter
+  </div>
+</div>
 
 <script>
 var displaymenu = false;
 document.querySelector("div.hamburger").addEventListener("click", function(event) {
   if(!displaymenu) {
-    document.querySelector("nav.hamburger").style.display = "block";
+    document.querySelector("nav").style.display = "block";
     displaymenu = true;
   }
   else {
-    document.querySelector("nav.hamburger").style.display="none";
+    document.querySelector("nav").style.display="none";
+    displaymenu = false;
+  }
+});
+document.querySelector("div.wrapper").addEventListener("click", function(event) {
+  if(event.target.className != "hamburger" && event.target.tagName.toLowerCase() != "nav"
+     && displaymenu) {
+    document.querySelector("nav").style.display="none";
     displaymenu = false;
   }
 });
 
-document.querySelector("div.wrapper").addEventListener("click", function(event) {
-  if( event.target.className != "hamburger" && displaymenu) {
-    document.querySelector("nav.hamburger").style.display="none";
-    displaymenu = false;
-  }
-});
+this.addEventListener("hashchange", router);
+
+function router() {
+  var url = location.hash.slice(1) || '/';
+  console.log(url);
+}
 </script>
+
 </body>
 
 </html>
